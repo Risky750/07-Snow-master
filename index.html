@@ -624,9 +624,33 @@
                     </div>
                 </div>
             </div>
-            <div class="sticky-action">
-  <i class="fa fa-bolt"></i>
-  <a href="https://saas-starter-lovat.vercel.app/checkout2">Use This Template</a>
+            
+<div id="stickyAction" style="
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #797183;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 9999;
+  max-width: 480px;
+  font-weight: 500;
+">
+  <i class="fa fa-bolt" style="
+    font-size: 16px;
+    line-height: 1;
+  "></i>
+  <a href="https://saas-starter-lovat.vercel.app/checkout2" style="
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+  ">Use This Template</a>
 </div>
         </footer>
         <!-- END: Footer -->
@@ -638,9 +662,30 @@
 
 
     <!-- START: Scripts -->
+<script src="assets/js/combined.js"></script>
 
-    <script src="assets/js/combined.js"></script>
-    
+<script>
+  function updateStickyActionPosition() {
+    const el = document.getElementById('stickyAction');
+    if (!el) return;
+
+    if (window.innerWidth >= 992) {
+      // Desktop: top
+      el.style.top = '20px';
+      el.style.bottom = 'auto';
+      el.style.width = 'auto';
+    } else {
+      // Mobile: bottom
+      el.style.bottom = '20px';
+      el.style.top = 'auto';
+      el.style.width = 'calc(100% - 40px)';
+    }
+  }
+
+  // Run on load and resize
+  document.addEventListener('DOMContentLoaded', updateStickyActionPosition);
+  window.addEventListener('resize', updateStickyActionPosition);
+</script>
     <!-- END: Scripts -->
 
 
